@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    {% if is_owner_list %}
+        <input type="text" placeholder="добавить желание">
+    {% endif %}
+    <h1>Я хочу чтобы мне подарили: </h1>
+    {% for product in wishlist.product.all %}
+        <a href="{{ product.link }}">{{ product.title }}</a>
+    {% endfor %}
+{% endblock %}
