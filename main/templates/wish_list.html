@@ -2,7 +2,11 @@
 
 {% block body %}
     {% if is_owner_list %}
-        <input type="text" placeholder="добавить желание">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">ADD</button>
+        </form>
     {% endif %}
     <h1>Я хочу чтобы мне подарили: </h1>
     {% for product in wishlist.product.all %}
